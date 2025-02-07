@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { containerFadeIn, letterAnimate, letterInitial, letterTransition } from "@/constants/motion"
 import FloatingPaths from "./FloatingPaths"
-import GoogleLoginDialog from "../auth/googleLoginDialog"
+import LoginDialog from "../auth/ButtonLoginDialog"
 
 export default function BackgroundPaths() {
   const title = "Potencialize com To Do `IA´"
@@ -51,7 +51,7 @@ export default function BackgroundPaths() {
                        dark:from-white/10 dark:to-black/10 p-px rounded-2xl backdrop-blur-lg 
                        overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
-            <GoogleLoginDialog>
+            <LoginDialog>
             <Button
               variant="ghost"
               className="rounded-[1.15rem] px-8 py-6 text-lg font-semibold backdrop-blur-md 
@@ -61,7 +61,7 @@ export default function BackgroundPaths() {
                          hover:shadow-md dark:hover:shadow-neutral-800/50"
             >
               <span className="opacity-90 group-hover:opacity-100 transition-opacity">
-                Login!
+                Acesse!
               </span>
               <span
                 className="ml-3 opacity-70 group-hover:opacity-100 group-hover:translate-x-1.5 
@@ -70,7 +70,7 @@ export default function BackgroundPaths() {
                 →
               </span>
             </Button>
-            </GoogleLoginDialog>
+            </LoginDialog>
           </div>
         </motion.div>
       </div>
