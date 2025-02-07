@@ -4,25 +4,38 @@ import type { NextAuthConfig } from "next-auth";
 import { compare } from "bcryptjs";
 import { CredentialsSchema } from "./schemas";
 import { findUserByEmail } from "./services";
-import { UserNotFound } from "./services/user-not-found";
 
 export default {
-    providers:[
+    providers: [
         Google({}),
         Credentials({
-          async authorize(credentials) {
-              const validatedCredentials = CredentialsSchema.safeParse(credentials);
-              if (validatedCredentials.success) {
-                  const { email, password } = validatedCredentials.data;
-                  const user = await findUserByEmail(email);
-                  if (!user || !user.password) {
-                      throw new UserNotFound();
-                  }
-                  const validPassword = await compare(password, user.password);
-                  if (validPassword) return user;
-              }
-              return null;
-          },
-      }),
+            async authorize(credentials) {
+                try {
+                    const validatedCredentials = CredentialsSchema.safeParse(credentials);
+                    
+                    if (!validatedCredentials.success) {
+                        throw new Error("Credenciais inválidas");
+                    }
 
-    ]} satisfies NextAuthConfig;
+                    const { email, password } = validatedCredentials.data;
+                    
+                    const user = await findUserByEmail(email);
+                    
+                    if (!user || !user.password) {
+                        throw new Error("Email não encontrado");
+                    }
+
+                    const isValidPassword = await compare(password, user.password);
+                    
+                    if (!isValidPassword) {
+                        throw new Error("Senha incorreta");
+                    }
+
+                    return user;
+                } catch (error) {
+                    throw new Error(error instanceof Error ? error.message : "Erro na autenticação");
+                }
+            }
+        })
+    ]
+} satisfies NextAuthConfig;

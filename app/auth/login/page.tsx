@@ -1,10 +1,12 @@
-import GoogleLogin from "@/components/auth/google-login";
+import LoginForm from '@/components/auth/forms/authforms/login-form'
+import React from 'react'
 
-export default function Home() {
+const LoginPage = () => {
   return (
-    <section>
-      <GoogleLogin />
-      
-    </section>
-  );
+    <div className="h-screen flex items-center justify-center">
+      <LoginForm />
+    </div>
+  )
 }
+
+export default LoginPage
