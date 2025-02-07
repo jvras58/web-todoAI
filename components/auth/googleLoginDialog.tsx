@@ -27,7 +27,7 @@ const GoogleLoginDialog: React.FC<GoogleLoginDialogProps> = ({ children }) => {
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Login</DialogTitle>
-          <DialogDescription>Sign in to your account using Google.</DialogDescription>
+          <DialogDescription>Faça login usando o Google.</DialogDescription>
         </DialogHeader>
         <form className="flex flex-col items-center gap-4" action={dispatchGoogle}>
           <Button
@@ -36,7 +36,7 @@ const GoogleLoginDialog: React.FC<GoogleLoginDialogProps> = ({ children }) => {
             onClick={() => dispatchGoogle()}
           >
             <BsGoogle />
-            Google Sign In
+            Login pelo Google
           </Button>
           {errorMsgGoogle && <p className="text-red-500">{errorMsgGoogle}</p>}
         </form>

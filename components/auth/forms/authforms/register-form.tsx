@@ -55,10 +55,10 @@ const RegisterForm = () => {
 
   return (
     <CardWrapper
-      headerLabel="Create an account"
-      title="Register"
+      headerLabel="Crie uma conta"
+      title="Cadastre-se"
       backButtonHref="/auth/login"
-      backButtonLabel="Already have an account"
+      backButtonLabel="Já tenho uma conta"
       showSocial
     >
       <Form {...form}>
@@ -86,7 +86,7 @@ const RegisterForm = () => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Nome</FormLabel>
                   <FormControl>
                     <Input {...field} placeholder="John Doe" />
                   </FormControl>
@@ -99,7 +99,7 @@ const RegisterForm = () => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel>Senha</FormLabel>
                   <FormControl>
                     <Input {...field} placeholder="******" type="password" />
                   </FormControl>
@@ -112,7 +112,7 @@ const RegisterForm = () => {
               name="passwordConfirmation"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Confirm Password</FormLabel>
+                  <FormLabel>Confirme a senha</FormLabel>
                   <FormControl>
                     <Input {...field} placeholder="******" type="password" />
                   </FormControl>
@@ -124,7 +124,7 @@ const RegisterForm = () => {
           <FormSuccess message={success} />
           <FormError message={error} />
           <Button type="submit" className="w-full" disabled={loading}>
-            {loading ? "Loading..." : "Register"}
+            {loading ? "Loading..." : "Cadastre-se"}
           </Button>
         </form>
       </Form>
